@@ -39,12 +39,17 @@
                  <tr>
 
                     <td>
-                        <%= link_to user_path(@user.id) do %>
-                        <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "40x40"%>
-                        <% end %><br>
-                    <%= link_to @user.name, user_path(@user) %></td>
-                    <td><%= link_to @book.title, book_path(@book) %></td>
-                    <td><%= @book.body %></td>
+                      <%= link_to user_path(@user.id) do %>
+                      <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "40x40"%>
+                      <% end %><br>
+                      <%= link_to @user.name, user_path(@user) %>
+                    </td>
+                    <td>
+                      <%= link_to @book.title, book_path(@book) %>
+                    </td>
+                    <td>
+                      <%= @book.body %>
+                    </td>
 
                  </tr>
                  <% end %>
