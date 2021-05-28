@@ -13,7 +13,7 @@
          </div>
 
          <div class="col-md-8 offset-md-1">
-            <h2>Books details</h2>
+            <h2>Book detail</h2>
 
             <table class="table table-hover table-inverse">
 
@@ -22,19 +22,26 @@
 
                  <tr>
 
-                    <td><%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "40x40"%><br>
+                    <td>
+                        <%= link_to user_path(@user.id) do %>
+                        <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "40x40"%>
+                        <% end %>
+                    <br>
                     <%= link_to @user.name, user_path(@user) %></td>
                     <td><%= link_to @book.title, book_path(@book) %></td>
                     <td><%= @book.body %></td>
-                    <td><%= link_to 'Edit', edit_book_path(@book) %></td>
-                    <td><%= link_to 'Destroy', book_path(@book), method: :delete, data: {confirm: "本当に消しますか？"} %></td>
+                    <td><%= link_to 'Edit', edit_book_path(@book), class:"btn btn-sm btn-success"%></td>
+                    <td><%= link_to 'Destroy', book_path(@book), method: :delete, data: {confirm: "本当に消しますか？"}, class:"btn btn-sm btn-danger" %></td>
 
                  </tr>
                  <% else %>
 
                  <tr>
 
-                    <td><%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "40x40"%><br>
+                    <td>
+                        <%= link_to user_path(@user.id) do %>
+                        <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "40x40"%>
+                        <% end %><br>
                     <%= link_to @user.name, user_path(@user) %></td>
                     <td><%= link_to @book.title, book_path(@book) %></td>
                     <td><%= @book.body %></td>
