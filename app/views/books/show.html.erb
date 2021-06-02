@@ -84,6 +84,21 @@
                  </tr>
                  <% end %>
 
+                 <div class="comments">
+                  <p>コメント件数：<%= @book.post_comments.count %></p>
+                  <% @book.post_comments.each do |post_comment| %>
+                    <p><%= image_tag('sample-author1.jpg') %></p>
+                    <%= post_comment.user.name %>
+                    <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+                  <% end %>
+                  </div>
+                  <div class="new-comment">
+                  <%= form_with(model:[@book, @post_comment], local: true) do |f| %>
+                    <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+                    <%= f.submit "送信する" %>
+                  <% end %>
+                  </div>
+
                </tbody>
 
             </table>
