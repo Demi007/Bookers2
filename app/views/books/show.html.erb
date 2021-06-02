@@ -105,7 +105,7 @@
             </div>
             <div class="new-comment">
               <%= form_with(model:[@book, @book_comment], local: true) do |f| %>
-              <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", class:"form-controll" %>
+              <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", class:"form-control" %>
               <%= f.submit "送信" %>
               <% end %>
             </div>
