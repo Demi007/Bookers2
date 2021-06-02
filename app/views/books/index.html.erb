@@ -21,8 +21,8 @@
     <div class="row">
 
       <div class="col-md-3">
-        <%= render 'users/abc', user:current_user %>
-        <%= render 'books/list', book:@book %>
+        <%= render 'users/abc', user: current_user %>
+        <%= render 'books/list', book: @book %>
       </div>
 
       <div class="col-md-8 offset-md-1">
@@ -57,6 +57,21 @@
                 </td>
                 <td>
                   <%= book.body %>
+                </td>
+                <td>
+                  <% if book.favorited_by?(current_user) %>
+                  <p>
+                    <%= link_to book_favorites_path(book.id), method: :delete do %>
+                    <i class="fas fa-heart favorites-btn like-btn"><%= book.favorites.count %></i>
+                    <% end %>
+                  </p>
+                  <% else %>
+                  <p>
+                    <%= link_to book_favorites_path(book.id), method: :post do %>
+                    <i class="fas fa-heart favorites-btn unlike-btn"><%= book.favorites.count %></i>
+                    <% end %>
+                  </p>
+                <% end %>
                 </td>
 
               </tr>

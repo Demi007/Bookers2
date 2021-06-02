@@ -81,3 +81,10 @@ label {
     vertical-align: top;
     border-top: 1px solid #dee2e6;
 }
+.like-btn {
+    color: red;
+}
+.favorites-btn:hover {
+    color: navy;
+    text-decoration: underline;
+}
