@@ -1,2 +1,1 @@
-<h1>Favorites#create</h1>
-<p>Find me in app/views/favorites/create.html.erb</p>
+$('#favorite_buttons_<%= @book.id %>').html("<%= j(render "favorites/favorites", locals: {book: @book) %>");

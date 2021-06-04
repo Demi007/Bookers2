@@ -1,2 +1,1 @@
-<h1>Favorites#destroy</h1>
-<p>Find me in app/views/favorites/destroy.html.erb</p>
+$('#favorite_buttons_<%= @book.id %>').html("<%= j(render "favorites/favorites", book: @book.id) %>");
